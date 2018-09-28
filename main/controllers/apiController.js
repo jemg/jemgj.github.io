@@ -31,14 +31,14 @@ exports.datatoJSON = function(req, res) {
         rows.forEach((row) => {
           //stringify
           if(row.Approver_id == req.params.ID){
-            output = output + "{ Approver Name: '"+row.Approver_name+"'," + "Name: '"+row.Name+"'," + "Employee ID: '"+row.employee_id+"'," + "Approval Type: '"+row.Approval_type+"'," + "Duration: '"+row.Duration+"'," + "Start Date: '"+row.start_date+"'," + "End Date: '"+row.end_date+"' },";
+              output = output + "{ \"Approver Name\": \""+row.Approver_name+"\"," + "\"Name\": \""+row.Name+"\"," + "\"Employee ID\": \""+row.employee_id+"\"," + "\"Approval Type\": \""+row.Approval_type+"\"," + "\"Duration\": \""+row.Duration+"\"," + "\"Start Date\": \""+row.start_date+"\"," + "\"End Date\": \""+row.end_date+"\" },";
           }
         });
         if(output[output.length-1] == ','){
           output = output.slice(0, -1);
         }
         output = output + ']'
-        res.json(output);
+        res.json(JSON.parse(output));
       });
   };
  
