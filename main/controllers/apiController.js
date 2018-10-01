@@ -1,7 +1,7 @@
 'use strict';
 
 var sqlite3 = require('sqlite3');
-let db = new sqlite3.Database('.\\main\\test.db');
+let db = new sqlite3.Database('..\\main\\test.db');
 
 exports.datatoJSON = function(req, res) {
     let sql = `SELECT Name, myTime.Employee_id, Approval_type, Duration, start_date, end_date, Approver_name, Approver_id FROM myTime JOIN Employee ON Employee.Employee_id = ?`; //query here 
