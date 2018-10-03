@@ -4,18 +4,18 @@ var sqlite3 = require('sqlite3');
 let db = new sqlite3.Database('.//main//test.db');
 
 exports.datatoJSON = function(req, res) {
-//     let sql = `SELECT Name, myTime.Employee_id, Approval_type, Duration, start_date, end_date, Approver_name, Approver_id FROM myTime JOIN Employee ON Employee.Employee_id = ?`; //query here 
-//     db.all(sql, req.params.ID, (err, rows) => {
-//         if (err) {
-//           throw err;
-//         }
-//         console.log(rows)
-//         res.json(rows[0])
-//         // rows.forEach((row) => {
-//         //   //stringify
-//         //   res.json(row);
-//         // });
-    res.send("Please add the approver id in the url after a backslash...");
+    let sql = `SELECT Name, myTime.Employee_id, Approval_type, Duration, start_date, end_date, Approver_name, Approver_id FROM myTime JOIN Employee ON Employee.Employee_id = ?`; //query here 
+    db.all(sql, req.params.ID, (err, rows) => {
+        if (err) {
+          throw err;
+        }
+        console.log(rows)
+        res.json(rows[0])
+        // rows.forEach((row) => {
+        //   //stringify
+        //   res.json(row);
+        // });
+    
       });
   };
 
