@@ -19,7 +19,7 @@ exports.datatoJSON = function(req, res) {
   };
 
   exports.datatoJSON2 = function(req, res) {
-    let sql = `SELECT Name, myTime.Employee_id, Approval_type, Duration, start_date, end_date, Approver_name, Approver_id FROM [dbo].[myTime] JOIN [dbo].[Employee] ON Employee.Employee_id = myTime.employee_id`; //query here 
+    let sql = `SELECT Name, myTime.Employee_id, Approval_type, Duration, start_date, end_date, Approver_name, Approver_id FROM myTime JOIN Employee ON Employee.Employee_id = myTime.employee_id`; //query here 
     db.all(sql, [], (err, rows) => {
         if (err) {
           throw err;
